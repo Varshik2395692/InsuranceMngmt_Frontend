@@ -74,6 +74,15 @@
     background-color: #218838;
   }
 
+  .back-button {
+    background-color: #007bff;
+    margin-top: 15px;
+  }
+
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+
   /* Modal Styling */
   .modal-content {
       border-radius: 10px;

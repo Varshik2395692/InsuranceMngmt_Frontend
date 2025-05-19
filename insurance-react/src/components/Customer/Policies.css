@@ -26,15 +26,22 @@
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
   position: relative;
   margin-bottom: 20px; /* Add spacing between cards */
 }
 
 .policy-card:hover {
-  transform: translateY(-5px);
+  background-color: #3498db; /* Match hover background color */
+  color: white; /* Change text color to white */
+  transform: translateY(-5px); /* Add lift effect */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-color: #007bff; /* Bootstrap primary blue */
+  border-color: #3498db; /* Match hover border color */
+}
+
+.policy-card:hover h3,
+.policy-card:hover p {
+  color: white; /* Ensure text inside the card is white on hover */
 }
 
 .policy-card h3 {

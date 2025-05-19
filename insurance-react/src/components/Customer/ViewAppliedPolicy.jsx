@@ -38,39 +38,28 @@ const ViewAppliedPolicy = () => {
   }, [userId, fetchPolicies]);
 
   return (
-    <div className="container view-applied-policy-page">
+    <div className="view-applied-policy-container">
       <h1 className="text-center my-4">My Applied Policies</h1>
       {loading && <p className="text-center">Loading policies...</p>}
       {errorMessage && <p className="text-center text-danger">{errorMessage}</p>}
       {policies.length > 0 ? (
-        <div className="table-responsive">
-          <table className="table table-bordered table-striped">
-            <thead className="table-primary">
-              <tr>
-                <th>Policy ID</th>
-                <th>Policy Name</th>
-                <th>Premium</th>
-                <th>Coverage</th>
-              </tr>
-            </thead>
-            <tbody>
-              {policies.map((policy) => (
-                <tr key={policy.policyID}>
-                  <td>{policy.policyID}</td>
-                  <td>{policy.policyName}</td>
-                  <td>{policy.premiumAmount}</td>
-                  <td>{policy.coverageDetails}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="policies-grid">
+          {policies.map((policy, index) => (
+            <div key={policy.policyID || index} className="policy-card">
+              <div className="policy-number">#{index + 1}</div>
+              <h3>{policy.policyName}</h3>
+              <p><strong>Premium:</strong> {policy.premiumAmount}</p>
+              <p><strong>Coverage:</strong> {policy.coverageDetails}</p>
+            </div>
+          ))}
         </div>
       ) : (
         !loading && !errorMessage && <p className="text-center">No policies found for your account.</p>
       )}
       <button
-        className="btn btn-secondary btn-sm mt-4"
+        className="back-button"
         onClick={() => navigate(-1)}
+        title="Go back"
       >
         Back
       </button>

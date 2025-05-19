@@ -83,6 +83,15 @@ const FileClaimPage = () => {
                 <button type="submit" className="submit-button">Submit Claim</button>
             </form>
 
+            {/* Back Button */}
+            <button
+                type="button"
+                className="submit-button back-button"
+                onClick={() => navigate(`/customer`)}
+            >
+                Back
+            </button>
+
             {/* Success/Failure Modal */}
             {showModal && (
                 <div className="modal show d-block" tabIndex="-1">
