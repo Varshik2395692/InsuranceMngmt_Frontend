@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useUserContext } from '../../context/UserContext';
 import { getPoliciesByAgentId } from '../../services/UserService';
+import { FaShieldAlt } from "react-icons/fa"; // Import Font Awesome icon
 import './ViewPoliciesByAgentId.css';
 
 const ViewPoliciesByAgentId = () => {
@@ -39,26 +40,16 @@ const ViewPoliciesByAgentId = () => {
       {loading && <p>Loading policies...</p>}
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       {policies.length > 0 ? (
-        <table className="policies-table">
-          <thead>
-            <tr>
-              <th>Policy ID</th>
-              <th>Policy Name</th>
-              <th>Premium</th>
-              <th>Coverage</th>
-            </tr>
-          </thead>
-          <tbody>
-            {policies.map((policy) => (
-              <tr key={policy.policyID}>
-                <td>{policy.policyID}</td>
-                <td>{policy.policyName}</td>
-                <td>{policy.premiumAmount}</td>
-                <td>{policy.coverageDetails}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="policies-grid">
+          {policies.map((policy) => (
+            <div className="policies-grid-item" key={policy.policyID}>
+              <FaShieldAlt className="policies-grid-item-icon" />
+              <h3 className="policies-grid-item-title">{policy.policyName}</h3>
+              <p><strong>Premium:</strong> {policy.premiumAmount}</p>
+              <p><strong>Coverage:</strong> {policy.coverageDetails}</p>
+            </div>
+          ))}
+        </div>
       ) : (
         !loading && !errorMessage && (
           <div className="no-data-emoji-container">

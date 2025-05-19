@@ -149,6 +149,7 @@ const AddPolicy = () => {
                     <button type="submit" className="submit-button">Add Policy</button>
                 </form>
             </div>
+            <button className="back-button" onClick={() => navigate('/admin')}>Back</button>
             {showModal && (
                 <div className="custom-toast">
                     <div className={`toast-content ${modalContent.isSuccess ? 'toast-success' : 'toast-error'}`}>

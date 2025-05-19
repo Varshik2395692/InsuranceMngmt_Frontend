@@ -1,5 +1,7 @@
 import { useState } from "react";
 import InputField from "../InputField";
+import '../../styles/Toast.css'; // Import Toast CSS
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const RegisterForm = ({ onRegister }) => {
     const [user, setUser] = useState({
@@ -9,7 +11,9 @@ const RegisterForm = ({ onRegister }) => {
         role: "ROLE_CUSTOMER"
     });
 
-    const [error, setError] = useState(null);
+    const [showToast, setShowToast] = useState(false); // State for toast visibility
+    const [toastContent, setToastContent] = useState({ message: '', isSuccess: false }); // State for toast content
+    const navigate = useNavigate(); // Initialize navigate
 
     function handleUpdate(e) {
         setUser({
@@ -20,12 +24,12 @@ const RegisterForm = ({ onRegister }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(null); // Reset error state before submission
 
         // Validation for empty fields
         if (!user.name || !user.email || !user.password || !user.role) {
-            setError("All fields are required. Please fill out all fields.");
-            alert("Please fill out all fields before submitting.");
+            setToastContent({ message: "❌ All fields are required. Please fill out all fields.", isSuccess: false });
+            setShowToast(true);
+            setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
             return;
         }
 
@@ -41,18 +45,9 @@ const RegisterForm = ({ onRegister }) => {
             if (!response.ok) {
                 const errorData = await response.json(); // Parse error response
                 const errorMessage = errorData.message || "Failed to register.";
-                
-                // Handle duplicate email error
-                if (errorMessage.toLowerCase().includes("email")) {
-                    alert("This email is already registered. Please use a different email.");
-                } 
-                // Handle duplicate password error (if applicable)
-                else if (errorMessage.toLowerCase().includes("password")) {
-                    alert("This password is already in use. Please choose a different password.");
-                } 
-                else {
-                    alert(errorMessage);
-                }
+                setToastContent({ message: `❌ ${errorMessage}`, isSuccess: false });
+                setShowToast(true);
+                setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
                 throw new Error(errorMessage);
             }
 
@@ -61,17 +56,17 @@ const RegisterForm = ({ onRegister }) => {
             if (onRegister) {
                 onRegister(data); // Invoke callback with response data
             }
-            alert("Registration successful!"); // Success popup
+            setToastContent({ message: "✅ Registration successful!", isSuccess: true });
+            setShowToast(true);
+            setTimeout(() => setShowToast(false), 3000); // Hide toast after 3 seconds
         } catch (error) {
             console.error("Error:", error);
-            setError(error.message); // Display error message to the user
         }
     };
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
             <h2>Register</h2>
-            {error && <p className="error-message">{error}</p>}
             <InputField
                 label="Name"
                 type="text"
@@ -99,6 +94,14 @@ const RegisterForm = ({ onRegister }) => {
                 </select>
             </label>
             <button type="submit" className="form-button">Register</button>
+            <button className="back-button" onClick={() => navigate('/')}>Back to Home</button>
+            {showToast && (
+                <div className="custom-toast">
+                    <div className={`toast-content ${toastContent.isSuccess ? 'toast-success' : 'toast-error'}`}>
+                        {toastContent.message}
+                    </div>
+                </div>
+            )}
         </form>
     );
 };

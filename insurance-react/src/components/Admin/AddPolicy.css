@@ -70,6 +70,21 @@ textarea {
   background-color: #218838;
 }
 
+/* Back Button */
+.back-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
 /* Toast Notification Styling */
 .custom-toast {
   position: fixed;

@@ -107,14 +107,26 @@ button:hover, .btn:hover {
 
 /* Grid Item Hover Effects */
 .card {
-  border: none;
-  border-radius: 10px;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+  position: relative;
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  background-color: #0056b3; /* Change hover background color to blue */
+  color: white; /* Change text color to white */
+  transform: translateY(-5px); /* Add lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: #0056b3; /* Match hover border color */
+}
+
+.card:hover h5,
+.card:hover p {
+  color: white; /* Ensure text inside the card is white on hover */
 }
 
 /* Key Features Grid Hover Effects */
@@ -241,18 +253,26 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
 
 /* Hover Effects for .container.my-5 */
 .container.my-5 .card {
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
+  position: relative;
 }
 
 .container.my-5 .card:hover {
-  background-color: #0056b3; /* Change to desired hover color */
-  color: white; /* Ensure text is visible */
-  transform: translateY(-5px); /* Slightly lift the card */
+  background-color: #3498db; /* Match hover background color */
+  color: white; /* Change text color to white */
+  transform: translateY(-5px); /* Add lift effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: #3498db; /* Match hover border color */
 }
 
-.container.my-5 .card:hover .card-title,
-.container.my-5 .card:hover .card-text {
-  color: white; /* Ensure text remains visible on hover */
+.container.my-5 .card:hover h5,
+.container.my-5 .card:hover p {
+  color: white; /* Ensure text inside the card is white on hover */
 }
 
 /* Responsive Design */
@@ -543,4 +563,22 @@ h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
   .card {
     margin-bottom: 1rem; /* Add spacing between cards */
   }
+}
+
+button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff; /* Bootstrap primary blue */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
 }

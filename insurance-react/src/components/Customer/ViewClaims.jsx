@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate for back button
 import './ViewClaims.css'; // Import custom CSS
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import { FaFileAlt } from 'react-icons/fa'; // Keep only one icon
 
 const ViewClaimsPage = () => {
     const { userId, authToken } = useUserContext(); // Access userId and authToken from context
@@ -54,6 +55,7 @@ const ViewClaimsPage = () => {
                     {claims.map((claim) => (
                         <div key={claim.id} className="col-md-4">
                             <div className="claim-card">
+                                <FaFileAlt className="icon" /> {/* Keep icon at the top */}
                                 <h3 title={claim.claimID}>Claim ID: {claim.claimID}</h3>
                                 <p title={claim.policy.policyID}>
                                     <strong>Policy ID:</strong> {claim.policy.policyID}

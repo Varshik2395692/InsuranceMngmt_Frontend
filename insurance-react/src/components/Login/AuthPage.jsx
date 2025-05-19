@@ -167,13 +167,13 @@ const AuthPage = ({ showLogin, showRegister, onLoginSuccess, onRegisterSuccess }
             {showLogin && (
                 <div className="forms-container">
                     <LoginForm onLogin={handleLoginSubmit} />
-                    <button className="back-button" onClick={() => navigate('/')}>Back</button> {/* Updated */}
+                    <button className="back-button" onClick={() => navigate('/')}>Back to Home</button>
                 </div>
             )}
             {showRegister && (
                 <div className="forms-container">
                     <RegisterForm onRegister={handleRegisterSubmit} />
-                    <button className="back-button" onClick={() => navigate('/')}>Back</button> {/* Updated */}
+                    <button className="back-button" onClick={() => navigate('/')}>Back to Home</button>
                 </div>
             )}
         </div>

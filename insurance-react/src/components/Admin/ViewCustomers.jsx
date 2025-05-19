@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap CSS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Import FontAwesome
-import { faSpinner, faExclamationCircle } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner, faExclamationCircle, faUser } from "@fortawesome/free-solid-svg-icons"; // Import FontAwesome icons
 import "./ViewCustomers.css";
 
 function ViewCustomers() {
@@ -66,6 +66,7 @@ function ViewCustomers() {
         <div className="grid-container">
           {customers.map((customer) => (
             <div className="grid-item" key={customer.id}>
+              <FontAwesomeIcon icon={faUser} className="grid-item-icon" />
               <h5>{customer.name}</h5>
               <p><strong>Email:</strong> {customer.email}</p>
               <p><strong>Phone:</strong> {customer.phone}</p>

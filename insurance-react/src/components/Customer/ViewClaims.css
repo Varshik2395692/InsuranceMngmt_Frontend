@@ -20,21 +20,30 @@
     padding: 15px;
     margin-bottom: 15px;
     background-color: #ffffff;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition for hover effect */
     height: 250px; /* Ensure equal height */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 }
 
 .claim-card:hover {
-    background-color: #f0f8ff;
+    background-color: #3498db; /* Match hover background color */
+    color: white; /* Change text color to white */
+    transform: translateY(-5px); /* Add lift effect */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-color: #3498db; /* Match hover border color */
+}
+
+.claim-card:hover h3,
+.claim-card:hover p {
+    color: white; /* Ensure text inside the card is white on hover */
 }
 
 .claim-card h3 {
     margin-bottom: 10px;
-    color: #1e90ff; /* Different color for titles */
+    color: #000; /* Change color to black for claim ID */
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -46,6 +55,18 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.icon {
+    font-size: 50px; /* Larger size for the top icon */
+    color: #3498db; /* Match the primary color */
+    margin-bottom: 10px; /* Add spacing below the icon */
+    align-self: center; /* Center the icon */
+    transition: color 0.3s ease;
+}
+
+.claim-card:hover .icon {
+    color: white; /* Change icon color on hover */
 }
 
 .claims-table {

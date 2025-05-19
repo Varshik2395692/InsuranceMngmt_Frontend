@@ -40,20 +40,33 @@
 }
 
 .grid-item {
+  display: grid;
+  grid-template-rows: 60px auto auto;
+  align-items: center;
+  justify-items: center;
   background-color: #f8f9fa;
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s, background-color 0.3s;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .grid-item:hover {
   transform: translateY(-5px);
-  background-color: #e9ecef;
-  border-color: #007bff; /* Add blue border */
-  color: #007bff; /* Change text color to blue */
+  background-color: #007bff; /* Change entire grid background color */
+  color: white; /* Change text color to white */
+}
+
+.grid-item-icon {
+  font-size: 50px;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.grid-item:hover .grid-item-icon {
+  color: white; /* Ensure icon color matches hover effect */
 }
 
 .grid-item h5 {
