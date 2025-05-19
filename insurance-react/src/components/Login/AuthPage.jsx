@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import axios from 'axios'; // Import axios
 import './AuthPage.css'; // Import the CSS file
 import { useUserContext } from '../../context/UserContext'; // Corrected import path
- 
+import { useNavigate } from 'react-router-dom'; // Add this import
+
 const LOGIN_API_BASE_URL = 'http://localhost:8099/api/auth'; // Login API base URL
 const REGISTER_API_BASE_URL = 'http://localhost:8081'; // Register API base URL
- 
+
 // Reusable Input Component
 const InputField = ({ label, type, name, value, onChange }) => {
     return (
@@ -22,7 +23,7 @@ const InputField = ({ label, type, name, value, onChange }) => {
         </div>
     );
 };
- 
+
 // Login Form Component
 const LoginForm = ({ onLogin }) => {
     const { setUserRole, setUserName, setUserId, setAuthToken } = useUserContext(); // Access the context
@@ -30,14 +31,14 @@ const LoginForm = ({ onLogin }) => {
         email: "",
         password: ""
     });
- 
+
     function handleUpdate(e) {
         setUser({
             ...user,
             [e.target.name]: e.target.value
         });
     }
- 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -47,14 +48,14 @@ const LoginForm = ({ onLogin }) => {
             setUserName(response.data.name);
             setUserId(response.data.userId);
             setAuthToken(response.data.token); // Store the token in context
- 
+
             onLogin(response.data); // Pass the entire user data, including the role
         } catch (error) {
             console.error("Error:", error);
             alert(error.response?.data?.message || "Login Failed");
         }
     };
- 
+
     return (
         <form className="form-container" onSubmit={handleSubmit}>
             <h2>Login</h2>
@@ -74,7 +75,7 @@ const LoginForm = ({ onLogin }) => {
         </form>
     );
 };
- 
+
 // Register Form Component
 const RegisterForm = ({ onRegister }) => {
     const [user, setUser] = useState({
@@ -83,14 +84,14 @@ const RegisterForm = ({ onRegister }) => {
         password: "",
         role: ""
     });
- 
+
     function handleUpdate(e) {
         setUser({
             ...user,
             [e.target.name]: e.target.value
         });
     }
- 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -102,7 +103,7 @@ const RegisterForm = ({ onRegister }) => {
             alert(error.response?.data?.message || "Failed to register");
         }
     };
- 
+
     return (
         <form className="form-container" onSubmit={handleSubmit}>
             <h2>Register</h2>
@@ -142,18 +143,19 @@ const RegisterForm = ({ onRegister }) => {
         </form>
     );
 };
- 
+
 // Main App Component
 const AuthPage = ({ showLogin, showRegister, onLoginSuccess, onRegisterSuccess }) => {
- 
+    const navigate = useNavigate(); // Initialize useNavigate for navigation
+
     const handleLoginSubmit = (data) => {
         onLoginSuccess(data);
     };
- 
+
     const handleRegisterSubmit = () => {
         onRegisterSuccess();
     };
- 
+
     return (
         <div className="auth-page">
             {!showLogin && !showRegister && (
@@ -165,17 +167,17 @@ const AuthPage = ({ showLogin, showRegister, onLoginSuccess, onRegisterSuccess }
             {showLogin && (
                 <div className="forms-container">
                     <LoginForm onLogin={handleLoginSubmit} />
-                    <button className="back-button" onClick={() => { onLoginSuccess(false); }}>Back</button>
+                    <button className="back-button" onClick={() => navigate('/')}>Back</button> {/* Updated */}
                 </div>
             )}
             {showRegister && (
                 <div className="forms-container">
                     <RegisterForm onRegister={handleRegisterSubmit} />
-                    <button className="back-button" onClick={() => { onRegisterSuccess(false); }}>Back</button>
+                    <button className="back-button" onClick={() => navigate('/')}>Back</button> {/* Updated */}
                 </div>
             )}
         </div>
     );
 };
- 
+
 export default AuthPage;

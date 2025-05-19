@@ -56,6 +56,13 @@
     border-radius: 5px;
     font-size: 1rem;
   }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure spacing between elements */
+    height: 100%; /* Full height for proper alignment */
+  }
    
   /* Buttons */
   .submit-button {
@@ -71,6 +78,10 @@
    
   .submit-button:hover {
     background-color: #0056b3;
+  }
+
+  .btn-secondary {
+    margin-top: auto; /* Push the button to the bottom */
   }
 
   /* Portal Section */

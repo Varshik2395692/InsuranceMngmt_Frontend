@@ -50,9 +50,11 @@ const CustomerProfile = () => {
             <button className="update-details-button" onClick={() => navigate('/customer/update-details')}>
                 Update Details
             </button>
-            <button className="back-button" onClick={() => navigate(-1)}>
-                Back
-            </button>
+            <div className="back-button-container">
+                <button className="back-button" onClick={() => navigate(-1)}>
+                    Back
+                </button>
+            </div>
         </div>
     );
 };

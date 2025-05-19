@@ -193,12 +193,14 @@ const UpdateDetailsPage = () => {
                         </div>
                         <button type="submit" className="submit-button btn btn-primary btn-block mb-3">Update Details</button>
                     </form>
-                    <button 
-                        className="btn btn-secondary btn-block" 
-                        onClick={() => navigate(-1)} // Navigate back to the previous page
-                    >
-                        Back
-                    </button>
+                    <div className="form-group">
+                        <button 
+                            className="btn btn-secondary btn-block" 
+                            onClick={() => navigate(-1)} // Navigate back to the previous page
+                        >
+                            Back
+                        </button>
+                    </div>
                 </div>
             </div>
 
