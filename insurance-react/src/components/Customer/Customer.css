@@ -1,0 +1,199 @@
+/* General Styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto', sans-serif; /* Professional font */
+  background-color: #f9f9f9;
+}
+
+/* Customer Dashboard Container */
+.customer-dashboard {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Sidebar Styling */
+.customer-sidebar {
+  width: 25%;
+  background-color: #2c3e50; /* Dark professional theme */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.customer-sidebar h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+}
+
+.customer-sidebar p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.customer-sidebar .customer-name {
+  font-size: 1.3rem; /* Increased font size */
+  font-weight: bold; /* Make it bold for emphasis */
+}
+
+.customer-sidebar .logout-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  font-size: 1rem;
+  color: white;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customer-sidebar .logout-button:hover {
+  background-color: #c0392b;
+}
+
+.customer-sidebar .home-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 1rem;
+  color: white;
+  background-color: #3498db; /* Blue color for Home button */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customer-sidebar .home-button:hover {
+  background-color: #217dbb; /* Darker blue on hover */
+}
+
+/* Main Content Styling */
+.customer-main-content {
+  flex: 1;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.customer-main-content h1 {
+  margin-top: 0;
+  color: #34495e;
+  font-size: 2rem;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Card Styling */
+.card {
+  flex: 1 1 calc(33.333% - 20px);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-sizing: border-box;
+  height: 300px; /* Consistent height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out content evenly */
+  align-items: center; /* Center align content */
+}
+
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center content vertically */
+  gap: 10px; /* Add spacing between icon and text */
+}
+
+.card h3 {
+  margin-top: 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.card p {
+  color: #7f8c8d;
+  font-size: 1rem;
+}
+
+.card button {
+  margin-top: auto; /* Push button to the bottom */
+  padding: 12px;
+  font-size: 1rem;
+  color: white;
+  background-color: #2980b9;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 80%; /* Ensure consistent button width */
+}
+
+.card button:hover {
+  background-color: #1c598a;
+}
+
+/* Card Content Styling */
+.card-icon {
+  font-size: 2rem;
+  color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .customer-dashboard {
+    flex-direction: column;
+  }
+
+  .customer-sidebar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .customer-main-content {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card {
+    flex: 1 1 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .customer-sidebar h2 {
+    font-size: 1.5rem;
+  }
+
+  .customer-sidebar p {
+    font-size: 1rem;
+  }
+
+  .card button {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}

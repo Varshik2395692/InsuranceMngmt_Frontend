@@ -1,0 +1,546 @@
+/* General Styles */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #003366; /* Darker blue for navbar */
+  color: white;
+  width: 100%; /* Full width */
+  box-sizing: border-box;
+}
+
+.navbar-left .logo {
+  font-size: 1.8rem; /* Slightly reduced font size */
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 15px; /* Adjusted gap between buttons */
+}
+
+.navbar-right button {
+  padding: 10px 20px; /* Adjusted padding */
+  background-color: white;
+  color: #0056b3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px; /* Slightly reduced font size */
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-right button:hover {
+  background-color: #003366;
+  color: white;
+}
+
+/* Button Hover Effects */
+button, .btn {
+  transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  transform: scale(1.05); /* Slightly enlarge the button */
+  background-color: #0056b3; /* Change background color */
+  color: white; /* Change text color */
+}
+
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: linear-gradient(to right, #212240, #343a40);
+  color: white;
+  padding: 50px 15px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.cta-button {
+  padding: 10px 20px;
+  background-color: white;
+  color: #0056b3;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #003366;
+  color: white;
+}
+
+/* Grid Item Hover Effects */
+.card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Key Features Grid Hover Effects */
+.card {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slightly lift the card */
+  background-color: #0056b3; /* Change background color */
+  color: white; /* Change text color */
+}
+
+.card:hover .card-title {
+  color: white; /* Ensure the title text is visible on hover */
+}
+
+.card:hover .card-text {
+  color: #f0f0f0; /* Ensure the description text is visible on hover */
+}
+
+/* Header Hover Effects */
+h1, h2, h5 {
+  transition: color 0.3s ease;
+}
+
+h1:hover, h2:hover, h5:hover {
+  color: #0056b3; /* Change header color on hover */
+}
+
+/* Footer Section */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 30px 15px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Link Hover Effects */
+footer a:hover {
+  color: #0056b3; /* Change footer link color on hover */
+  text-decoration: underline; /* Add underline */
+}
+
+/* Navbar Link Hover Effects */
+.navbar-nav .nav-link {
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0056b3; /* Change link color on hover */
+}
+
+/* General Transition and Hover Effects */
+* {
+  transition: opacity 0.9s ease, transform 0.9s ease, background-color 0.3s ease, color 0.3s ease;
+  transition-delay: 0.9s;
+}
+
+button, .btn, .card, h1, h2, h3, h4, h5, h6, p, a, .navbar-nav .nav-link, footer a {
+  transition: opacity 0.9s ease, transform 0.9s ease, background-color 0.3s ease, color 0.3s ease;
+  transition-delay: 0.9s;
+}
+
+/* Hover Effects */
+button:hover, .btn:hover {
+  transform: scale(1.05);
+  background-color: var(--primary, #564BC6);
+  color: var(--white, #FFFFFF);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: var(--secondary, #594770);
+  color: var(--white, #FFFFFF);
+}
+
+.card:hover .card-title, .card:hover .card-text {
+  color: var(--white, #FFFFFF);
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  color: var(--primary, #564BC6);
+}
+
+.navbar-nav .nav-link:hover, footer a:hover {
+  color: var(--primary, #564BC6);
+  text-decoration: underline;
+}
+
+/* Key Features Section Styles */
+.sh_our_insurance_key_features_section .sh_main_box .sh_inner_box {
+  border: 1px solid #e7e7e7;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  transition: all 0.15s ease;
+  border-radius: 5px;
+}
+
+.sh_our_insurance_key_features_section .sh_main_box .sh_inner_box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  background-color: #0056b3;
+  color: white;
+}
+
+@media (max-width: 767.98px) {
+  .sh_our_insurance_key_features_section .sh_main_box .sh_inner_box {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+
+/* Hover Effects for .container.my-5 */
+.container.my-5 .card {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.container.my-5 .card:hover {
+  background-color: #0056b3; /* Change to desired hover color */
+  color: white; /* Ensure text is visible */
+  transform: translateY(-5px); /* Slightly lift the card */
+}
+
+.container.my-5 .card:hover .card-title,
+.container.my-5 .card:hover .card-text {
+  color: white; /* Ensure text remains visible on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    width: 100vw; /* Full viewport width */
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+  }
+  
+
+  .navbar-right {
+    flex-wrap: wrap;
+    gap: 10px; /* Adjusted gap */
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem; /* Adjusted font size for smaller screens */
+  }
+
+  .hero-content p {
+    font-size: 1rem; /* Adjusted font size */
+  }
+
+  .cta-button {
+    font-size: 14px; /* Adjusted font size */
+    padding: 10px 20px; /* Adjusted padding */
+  }
+}
+
+/* Animation Effects */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.animate-slide-right {
+  animation: slideInRight 1s ease-in-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-in-out;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.8s ease-in-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Back to Top Button Styles */
+.back-to-top {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Circular shape */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0056b3;
+  color: white;
+  font-size: 1.5rem; /* Larger arrow */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.back-to-top:hover {
+  background-color: #003366;
+  transform: scale(1.15); /* Slightly larger on hover */
+}
+
+.js_cls_sh_website_back_to_top {
+  width: 55px;
+  height: 55px;
+  position: fixed;
+  z-index: 999;
+  right: 30px; /* Adjusted for visibility */
+  bottom: 16px;
+  border-radius: 50%; /* Circular shape */
+  background-color: #0056b3;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.8s ease;
+}
+
+.js_cls_sh_website_back_to_top.active {
+  right: 30px; /* Visible position */
+  transition: all 0.8s ease;
+}
+
+.js_cls_sh_website_back_to_top:hover {
+  background-color: #003366;
+  transform: scale(1.15); /* Slightly larger on hover */
+}
+
+@media (max-width: 991.98px) {
+  .js_cls_sh_website_back_to_top.active {
+    right: 10px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .js_cls_sh_website_back_to_top.active {
+    width: 45px;
+    height: 45px;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+.js_cls_sh_website_back_to_top .circle.is-active {
+  width: 70px;
+  height: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.js_cls_sh_website_back_to_top.circles-wrapper,
+.js_cls_sh_website_back_to_top .circle,
+.js_cls_sh_website_back_to_top .inner-circle,
+.js_cls_sh_website_back_to_top .mask-full {
+  border-radius: 1000px; /* Ensures a perfect circle */
+}
+
+@media (max-width: 767.98px) {
+  .js_cls_sh_website_back_to_top.active {
+    width: 45px;
+    height: 45px;
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box; /* Consistent box-sizing across elements */
+}
+
+/* Insurance Management Banner Styles */
+.sh_insurance_management_banner {
+  padding-top: 180px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  padding-left: 50px;
+  padding-right: 50px;
+  background: #212240;
+  color: white; /* Ensure text is visible on the dark background */
+  text-align: center;
+}
+
+.sh_insurance_management_banner h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sh_insurance_management_banner p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.sh_insurance_management_banner .btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sh_insurance_management_banner .btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sh_insurance_management_banner {
+    padding-top: 120px;
+    padding-bottom: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .sh_insurance_management_banner h1 {
+    font-size: 2.5rem;
+  }
+
+  .sh_insurance_management_banner p {
+    font-size: 1rem;
+  }
+
+  .sh_insurance_management_banner .btn {
+    font-size: 0.9rem;
+  }
+}
+
+/* Grid Styling */
+.row.g-4 {
+  gap: 1.5rem; /* Add spacing between grid items */
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .row.g-4 {
+    gap: 1rem; /* Adjust spacing for smaller screens */
+  }
+
+  .card {
+    margin-bottom: 1rem; /* Add spacing between cards */
+  }
+}

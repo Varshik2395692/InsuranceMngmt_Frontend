@@ -1,0 +1,39 @@
+.view-applied-policy-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.table-responsive {
+    margin-top: 20px;
+}
+
+.policies-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.policies-table th,
+.policies-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.policies-table th {
+    background-color: blue !important;
+    color: white;
+}
+
+.policies-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.policies-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}

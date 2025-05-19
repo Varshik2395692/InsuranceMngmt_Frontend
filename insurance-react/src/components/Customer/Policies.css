@@ -1,0 +1,110 @@
+.view-policies-container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.view-policies-container h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+.policies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.policy-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  margin-bottom: 20px; /* Add spacing between cards */
+}
+
+.policy-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-color: #007bff; /* Bootstrap primary blue */
+}
+
+.policy-card h3 {
+  margin: 0 0 10px;
+  color: #2c3e50;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  margin-bottom: 10px; /* Add spacing between elements */
+}
+
+.policy-card p {
+  margin: 5px 0;
+  color: #555;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+  margin-bottom: 10px; /* Add spacing between elements */
+}
+
+.policy-number {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.apply-button {
+  display: inline-block; /* Ensure buttons are inline-block */
+  margin: 10px 0; /* Add vertical spacing */
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #007bff; /* Bootstrap primary blue */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+.apply-button:hover {
+  background-color: #0056b3;
+}
+
+.back-button {
+  display: inline-block; /* Ensure buttons are inline-block */
+  margin: 10px 0; /* Add vertical spacing */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #6c757d; /* Bootstrap secondary gray */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Hide overflowing text */
+  text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}
