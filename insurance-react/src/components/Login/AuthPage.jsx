@@ -52,7 +52,6 @@ const LoginForm = ({ onLogin }) => {
             onLogin(response.data); // Pass the entire user data, including the role
         } catch (error) {
             console.error("Error:", error);
-            alert(error.response?.data?.message || "Login Failed");
         }
     };
 
@@ -85,46 +84,93 @@ const RegisterForm = ({ onRegister }) => {
         role: ""
     });
 
+    const [errors, setErrors] = useState({}); // State for field-specific error messages
+
     function handleUpdate(e) {
         setUser({
             ...user,
             [e.target.name]: e.target.value
         });
+
+        // Clear specific field error when user starts typing
+        setErrors((prevErrors) => ({
+            ...prevErrors,
+            [e.target.name]: ""
+        }));
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Validation for empty fields
+        const newErrors = {};
+        if (!user.name) newErrors.name = "Name is required.";
+        if (!user.email) newErrors.email = "Email is required.";
+        if (!user.password) newErrors.password = "Password is required.";
+        if (!user.role) newErrors.role = "Role is required.";
+
+        setErrors(newErrors);
+
+        // Stop submission if there are validation errors
+        if (Object.keys(newErrors).length > 0) return;
+
         try {
+            // Check if email already exists
+            const emailCheckResponse = await axios.get(`${REGISTER_API_BASE_URL}/users/${user.email}`);
+            if (emailCheckResponse.data) {
+                setErrors((prevErrors) => ({
+                    ...prevErrors,
+                    email: "Email already exists. Please use a different email."
+                }));
+                return;
+            }
+
+            // Proceed with registration
             const response = await axios.post(`${REGISTER_API_BASE_URL}/register`, user);
             console.log("Success:", response.data);
             onRegister(); // Notify parent of successful registration
         } catch (error) {
             console.error("Error:", error);
-            alert(error.response?.data?.message || "Failed to register");
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                form: error.response?.data?.message || "Failed to register."
+            }));
         }
     };
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
             <h2>Register</h2>
-            <InputField
-                label="name"
-                type="text"
-                name="name"
-                onChange={handleUpdate}
-            />
-            <InputField
-                label="Email"
-                type="email"
-                name="email"
-                onChange={handleUpdate}
-            />
-            <InputField
-                label="Password"
-                type="password"
-                name="password"
-                onChange={handleUpdate}
-            />
+            <div>
+                <InputField
+                    label="Name"
+                    type="text"
+                    name="name"
+                    value={user.name}
+                    onChange={handleUpdate}
+                />
+                {errors.name && <p className="error-text">{errors.name}</p>}
+            </div>
+            <div>
+                <InputField
+                    label="Email"
+                    type="email"
+                    name="email"
+                    value={user.email}
+                    onChange={handleUpdate}
+                />
+                {errors.email && <p className="error-text">{errors.email}</p>}
+            </div>
+            <div>
+                <InputField
+                    label="Password"
+                    type="password"
+                    name="password"
+                    value={user.password}
+                    onChange={handleUpdate}
+                />
+                {errors.password && <p className="error-text">{errors.password}</p>}
+            </div>
             <div className="input-group">
                 <label htmlFor="role">Role</label>
                 <select
@@ -138,11 +184,29 @@ const RegisterForm = ({ onRegister }) => {
                     <option value="ROLE_CUSTOMER">Customer</option>
                     <option value="ROLE_AGENT">Agent</option>
                 </select>
+                {errors.role && <p className="error-text">{errors.role}</p>}
             </div>
+            {errors.form && <p className="error-text">{errors.form}</p>}
             <button type="submit" className="form-button">Register</button>
         </form>
     );
 };
+
+// Add CSS for left-aligned error messages
+const styles = `
+    .error-text {
+        color: red;
+        font-size: 0.9rem;
+        margin-top: 4px;
+        text-align: left;
+    }
+`;
+
+// Inject styles into the document
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
 
 // Main App Component
 const AuthPage = ({ showLogin, showRegister, onLoginSuccess, onRegisterSuccess }) => {

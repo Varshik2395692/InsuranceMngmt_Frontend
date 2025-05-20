@@ -25,6 +25,8 @@ import ViewClaims from './components/Customer/ViewClaims'; // Import ViewClaims 
 import Policies from './components/Customer/Policies';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Details from './components/Customer/Details';
+import career from './components/Career';
+import support from './components/Support';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -70,6 +72,9 @@ function App() {
             <Route path="/customer/view-applied-policies" element={<ViewAppliedPolicy />} />
             <Route path="/customer/file-claim" element={<FileClaimPage />} />
             <Route path="/home" element={<Home/>} /> {/* Added route for Homepage */}
+            <Route path="*" element={<div>404 Not Found</div>} />
+            <Route path="/career" element={<career />} />
+            <Route path="/support" element={<support />} />
           </Routes>
         </div>
     </UserProvider>
